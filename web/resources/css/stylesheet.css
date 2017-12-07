@@ -1,0 +1,8 @@
+.mainTopLabel {
+    text-align: center;
+    margin-top: 50px;
+    display: block;
+    font-family: Gabriola, sans-serif;
+    font-size: 40px;
+    font-weight: bold;
+}

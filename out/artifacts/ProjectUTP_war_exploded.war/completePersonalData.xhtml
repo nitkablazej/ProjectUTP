@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <h:head>
+        <h:outputStylesheet library="css" name="stylesheet.css" />
+    </h:head>
+
+    <h:body>
+        <ui:remove><!--Napis "Od teraz jesteś..." na górze strony--></ui:remove>
+        <p:outputLabel id="labelWelcome"
+                       styleClass="mainTopLabel"
+                       value="#{controller.character.getValue()}"/>
+
+        <ui:remove><!--Podaj dane osobowe--></ui:remove>
+        <p:outputLabel id="labelCompletePersonalData"
+                       style="text-align: center; margin-top: 80px; display: block; font-family: Constantia, sans-serif; font-size: 25px;"
+                       value="Podaj swoje dane osobowe:"/>
+
+        <h:form>
+            <ui:remove><!--Panel z danymi osobowymi do uzupełnienia--></ui:remove>
+            <p:panelGrid columns="2" style="margin: auto; border-style: none; margin-top: 40px" styleClass="ui-noborder" >
+
+                <ui:remove><!--Imię--></ui:remove>
+                <p:outputLabel for="firstName"
+                               value="Imię:"
+                               style="font-family: Constantia, sans-serif; font-size: 20px; color: black;"/>
+                <p:inputText id="firstName"
+                             value=""
+                             style="width: 230px; font-family: Constantia, sans-serif; font-size: 20px; color: black;">
+                    <p:keyFilter regEx="/[A-Za-zęóąśłżźćń]/i"/>
+                </p:inputText>
+
+                <ui:remove><!--Data urodzenia--></ui:remove>
+                <p:outputLabel for="dateOfBirth"
+                               value="Data urodzenia:"
+                               style="font-family: Constantia, sans-serif; font-size: 20px; color: black;" />
+                <p:inputMask id="dateOfBirth"
+                             value="01-01-1998"
+                             mask="99-99-9999"
+                             style="width: 230px; font-family: Constantia, sans-serif; font-size: 20px; color: black;"/>
+
+                <ui:remove><!--Adres e-mail--></ui:remove>
+                <p:outputLabel for="emailAddress"
+                               value="Adres e-mail:"
+                               style="font-family: Constantia, sans-serif; font-size: 20px; color: black;"/>
+                <p:inputText id="emailAddress"
+                             value=""
+                             style="width: 230px;
+                             font-family: Constantia, sans-serif; font-size: 20px; color: black;"/>
+
+                <ui:remove><!--Miejscowość--></ui:remove>
+                <p:outputLabel for="homeCity"
+                               value="Miejscowość:"
+                               style="font-family: Constantia, sans-serif; font-size: 20px; color: black;"/>
+                <p:selectOneMenu id="homeCity"
+                                 value="AAA"
+                                 effect="fade"
+                                 var="t"
+                                 filter="true"
+                                 style="width: 200px; font-family: Constantia, sans-serif; font-size: 20px; color: black;">
+                    <f:selectItem itemLabel="Wybierz..." itemValue="a" />
+                    <f:selectItem itemLabel="Xbox One" itemValue="Xbox One" />
+                    <f:selectItem itemLabel="PS4" itemValue="PS4" />
+                    <f:selectItem itemLabel="Wii U" itemValue="Wii U" />
+                </p:selectOneMenu>
+
+                <ui:remove><!--Szkoła średnia--></ui:remove>
+                <p:outputLabel for="highSchool"
+                               value="Szkoła średnia:"
+                               style="font-family: Constantia, sans-serif; font-size: 20px; color: black;"/>
+                <p:selectOneMenu id="highSchool"
+                                 value="AAA"
+                                 panelStyle="width:180px"
+                                 effect="fade"
+                                 var="t"
+                                 filter="true"
+                                 style="width: 200px; font-family: Constantia, sans-serif; font-size: 20px; color: black;">
+                    <f:selectItem itemLabel="Wybierz..." itemValue="a" />
+                    <f:selectItem itemLabel="Xbox One" itemValue="Xbox One" />
+                    <f:selectItem itemLabel="PS4" itemValue="PS4" />
+                    <f:selectItem itemLabel="Wii U" itemValue="Wii U" />
+                </p:selectOneMenu>
+
+                <ui:remove><!--Preferowany kierunek studiów--></ui:remove>
+                <p:outputLabel for="prefferedStudy"
+                               value="Preferowany kierunek:"
+                               style="font-family: Constantia, sans-serif; font-size: 20px; color: black;"/>
+                <p:selectOneMenu id="prefferedStudy"
+                                 value="AAA"
+                                 panelStyle="width:180px"
+                                 effect="fade"
+                                 var="t"
+                                 filter="true"
+                                 style="width: 200px; font-family: Constantia, sans-serif; font-size: 20px; color: black;">
+                    <f:selectItem itemLabel="Wybierz..." itemValue="a" />
+                    <f:selectItem itemLabel="Xbox One" itemValue="Xbox One" />
+                    <f:selectItem itemLabel="PS4" itemValue="PS4" />
+                    <f:selectItem itemLabel="Wii U" itemValue="Wii U" />
+                </p:selectOneMenu>
+            </p:panelGrid>
+
+            <ui:remove><!--Przycisk zatwierdzający--></ui:remove>
+            <p:commandButton value="Zatwierdź" action="index3" style=" margin:auto; margin-top:50px; display: block; font-family: Constantia, sans-serif; font-size: 20px;"/>
+        </h:form>
+    </h:body>
+
+</html>

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+    <title>UTP - Dział Promocji</title>
+    <h:outputStylesheet library="css" name="stylesheet.css" />
+</h:head>
+
+<h:body>
+    <p:outputLabel id="labelChooseCharacter"
+                   styleClass="mainTopLabel"
+                   value="Wybierz postać, którą chcesz zostać:"/>
+
+    <h:form id="form">
+        <p:panelGrid id="panelGridChooseCharacter" columns="2" style="margin: auto; text-align: center; border-style: none" styleClass="ui-noborder">
+            <h:graphicImage id="imageJan"
+                            onmouseover="transformJanButton()"
+                            value = "/resources/images/JanSniadecki.JPG"/>
+            <h:graphicImage id="imageJedrzej"
+                            onmouseover="transformJedrzejButton()"
+                            value = "/resources/images/JedrzejSniadecki.JPG"/>
+            <p:commandButton id="buttonJan"
+                             onmouseover="transformJanButton()"
+                             action="#{controller.chooseJanCharacter}"
+                             value="Jan Śniadecki"
+                             style="font-family: Gabriola, sans-serif; font-size: 30px;"/>
+            <p:commandButton id="buttonJedrzej"
+                             onmouseover="transformJedrzejButton()"
+                             action="#{controller.chooseJedrzejCharacter}"
+                             value="Jędrzej Śniadecki"
+                             style="font-family: Gabriola, sans-serif; font-size: 30px;"/>
+        </p:panelGrid>
+    </h:form>
+
+    <h:outputScript>
+        function transformJanButton() {
+            document.getElementById("form:buttonJan").style.WebkitTransitionDuration="1s";
+            document.getElementById("form:buttonJan").style.WebkitTransform = "rotate(360deg)";
+        }
+        function transformJedrzejButton() {
+            document.getElementById("form:buttonJedrzej").style.WebkitTransitionDuration="1s";
+            document.getElementById("form:buttonJedrzej").style.WebkitTransform = "rotate(-360deg)";
+        }
+    </h:outputScript>
+
+</h:body>
+
+
+</html>
